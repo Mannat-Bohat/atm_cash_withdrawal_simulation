@@ -1,0 +1,28 @@
+// Simple ATM Cash Withdrawal Simulation
+#include <iostream>
+
+int main() {
+    double accountBalance = 5000.00; // Starting money
+    double withdrawAmount;
+
+    std::cout << "--- Welcome to the ATM ---" << std::endl;
+    std::cout << "Your current balance is: $" << accountBalance << std::endl;
+    
+    std::cout << "Enter the amount you want to withdraw: $";
+    std::cin >> withdrawAmount;
+
+    // Check if the user has enough money
+    if (withdrawAmount <= 0) {
+        std::cout << "Invalid amount. Please enter a number greater than 0." << std::endl;
+    } else if (withdrawAmount > accountBalance) {
+        std::cout << "Transaction Declined: Insufficient funds!" << std::endl;
+    } else {
+        // Deduct the money and print the receipt
+        accountBalance -= withdrawAmount;
+        std::cout << "\nTransaction Successful!" << std::endl;
+        std::cout << "Withdrew: $" << withdrawAmount << std::endl;
+        std::cout << "Remaining Balance: $" << accountBalance << std::endl;
+    }
+
+    return 0;
+}
